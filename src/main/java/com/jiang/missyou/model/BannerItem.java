@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class BannerItem  extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String name;
     private Long bannerId;
 
