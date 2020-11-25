@@ -1,4 +1,4 @@
-package com.jiang.missyou.validators;
+package com.jiang.missyou.dto.validators;
 
 import com.jiang.missyou.dto.PersonDTO;
 

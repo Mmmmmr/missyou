@@ -1,7 +1,6 @@
 package com.jiang.missyou.dto;
 
-import com.jiang.missyou.validators.PasswordEqual;
-import lombok.Data;
+import com.jiang.missyou.dto.validators.PasswordEqual;
 import lombok.Getter;
 import lombok.Setter;
 
