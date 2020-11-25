@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.constraints.Max;
 
 @RestController
-@RequestMapping("/banner")
+@RequestMapping("banner")
 @Validated
 public class BannerController {
 

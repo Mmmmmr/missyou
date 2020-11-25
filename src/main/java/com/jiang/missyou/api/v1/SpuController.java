@@ -36,7 +36,7 @@ public class SpuController {
         return this.spuService.getSpu(id);
     }
 
-    @PostMapping("/latest")
+    @GetMapping("/latest")
     public PagingDozer<Spu, SpuSimplifyVO> getLatestSpuList(@RequestParam(defaultValue = "0") Integer start,
                                                             @RequestParam(defaultValue = "20") Integer count) {
         PageCounter pageCounter = CommonUtil.covertToPageParameter(start, count);
@@ -45,10 +45,12 @@ public class SpuController {
     }
 
     @PostMapping("/by/categroy/{id}")
-    public PagingDozer<Spu, SpuSimplifyVO> getByCategoryId(@PathVariable Long id,
+    public PagingDozer<Spu, SpuSimplifyVO> getByCategoryId(@PathVariable @Positive(message = "{id.positive}") Long id,
                                                            @RequestParam(name = "is_root") Boolean isRoot,
                                                            @RequestParam(name = "start", defaultValue = "0") Integer start,
                                                            @RequestParam(name = "count", defaultValue = "20") Integer count) {
-        return null;
+        PageCounter pageCounter = CommonUtil.covertToPageParameter(start, count);
+        Page<Spu> spuList = this.spuService.getByCategory(id,  isRoot, pageCounter.getPage(), pageCounter.getCount());
+        return new PagingDozer<>(spuList, SpuSimplifyVO.class);
     }
 }
