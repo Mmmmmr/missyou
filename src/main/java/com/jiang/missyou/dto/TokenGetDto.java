@@ -16,5 +16,5 @@ public class TokenGetDto {
     @TokenPassword(max=30, message = "{token.password}")
     private String password;
 
-    private LoginType loginType;
+    private LoginType type;
 }
