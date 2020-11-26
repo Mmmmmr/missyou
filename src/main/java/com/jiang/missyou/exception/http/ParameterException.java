@@ -1,7 +1,7 @@
 package com.jiang.missyou.exception.http;
 
-public class ParamterException extends HttpException{
-    public ParamterException(int code) {
+public class ParameterException extends HttpException{
+    public ParameterException(int code) {
         this.httpStatusCode = 400;
         this.code = code;
     }

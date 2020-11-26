@@ -16,20 +16,21 @@ public class TokenController {
     @Autowired
     private WxAuthenticationService wxAuthenticationService;
 
-    @PostMapping()
+    @PostMapping("")
     public Map<String, String> getToke(@RequestBody @Validated TokenGetDto userData) {
         Map<String, String> map = new HashMap<>();
         String token = null;
         switch (userData.getType()) {
             case USER_WX:
-                wxAuthenticationService.code2Session(userData.getAccount());
+                 token = wxAuthenticationService.code2Session(userData.getAccount());
                 break;
             case USER_EMAIL:
                 break;
             default:
                 throw new NotFoundException(10003);
         }
-        return null;
+        map.put("token", token);
+        return map;
     }
 
 }
