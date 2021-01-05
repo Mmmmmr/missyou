@@ -11,7 +11,6 @@ public class BannerService {
     private BannerRepository bannerRepository;
 
     public Banner getByName(String name){
-
         return bannerRepository.findOneByName(name);
     }
 }

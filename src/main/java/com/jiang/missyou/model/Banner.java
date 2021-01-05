@@ -11,8 +11,7 @@ import java.util.List;
 @Setter
 public class Banner extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String name;
     private String description;
     private String img;
