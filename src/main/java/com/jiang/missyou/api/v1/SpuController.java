@@ -4,6 +4,7 @@ import com.github.dozermapper.core.DozerBeanMapper;
 import com.github.dozermapper.core.DozerBeanMapperBuilder;
 import com.github.dozermapper.core.Mapper;
 import com.jiang.missyou.bo.PageCounter;
+import com.jiang.missyou.exception.http.NotFoundException;
 import com.jiang.missyou.model.Banner;
 import com.jiang.missyou.model.Spu;
 import com.jiang.missyou.service.BannerService;
@@ -32,8 +33,12 @@ public class SpuController {
 
 
     @PostMapping("/id/{id}/detail")
-    public Spu getDetail(@PathVariable @Positive int id) {
-        return this.spuService.getSpu(id);
+    public Spu getDetail(@PathVariable @Positive Long id) {
+        Spu spu = this.spuService.getSpu(id);
+        if(spu == null) {
+            throw new NotFoundException(30003);
+        }
+        return spu;
     }
 
     @GetMapping("/latest")

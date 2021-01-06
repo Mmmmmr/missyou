@@ -14,11 +14,10 @@ import java.util.List;
 @Service
 public class SpuService {
     @Autowired
-    SpuRepository spuRepository;
+    private SpuRepository spuRepository;
 
-    public Spu getSpu(int id) {
+    public Spu getSpu(Long id) {
         return  spuRepository.findOneById(id);
-
     }
 
     public Page<Spu> getLatestSpuList (Integer pageNum, Integer count) {
@@ -27,7 +26,6 @@ public class SpuService {
     }
 
     public Page<Spu> getByCategory(Long cid, Boolean isRoot, Integer pageNum, Integer size) {
-
         Pageable page = PageRequest.of(pageNum, size);
         if(isRoot) {
             return this.spuRepository.findByRootCategoryIdOrderByCreateTimeDesc(cid, page);

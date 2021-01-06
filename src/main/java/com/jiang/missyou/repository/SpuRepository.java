@@ -5,8 +5,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SpuRepository extends JpaRepository<Spu, Integer> {
-    Spu findOneById(int id);
+public interface SpuRepository extends JpaRepository<Spu, Long> {
+
+    Spu findOneById(Long id);
+
     Page<Spu> findByCategoryIdOrderByCreateTimeDesc(Long cid, Pageable page);
+
     Page<Spu> findByRootCategoryIdOrderByCreateTimeDesc(Long cid,Pageable page);
+
 }
