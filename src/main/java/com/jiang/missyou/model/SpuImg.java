@@ -12,8 +12,8 @@ import java.util.Objects;
 @Setter
 public class SpuImg extends BaseEntity {
     @Id
-    private int id;
+    private Long id;
     private String img;
-    private int spuId;
+    private Long spuId;
 
 }

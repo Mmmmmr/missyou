@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PagingDozer<T, K> extends Paging {
+    @SuppressWarnings("unchecked")
     public PagingDozer(Page<T> pageT, Class<K> classK) {
         this.initPageParameters(pageT);
 

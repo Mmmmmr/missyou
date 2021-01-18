@@ -1,5 +1,6 @@
 package com.jiang.missyou.api.v1;
 
+import com.jiang.missyou.core.interceptors.ScopeLevel;
 import com.jiang.missyou.dto.PersonDTO;
 import com.jiang.missyou.exception.http.NotFoundException;
 import com.jiang.missyou.model.Banner;
@@ -20,6 +21,7 @@ public class BannerController {
 
 
     @PostMapping("/test/{name}")
+    @ScopeLevel()
     public Banner test(@PathVariable String  name) {
         Banner banner =  bannerService.getByName(name);
         if(banner == null) {

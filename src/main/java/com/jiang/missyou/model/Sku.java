@@ -15,20 +15,21 @@ import java.util.Objects;
 @Setter
 public class Sku extends BaseEntity {
     @Id
-    private int id;
+    private Long id;
     private BigDecimal price;
     private BigDecimal discountPrice;
     private byte online;
     private String img;
     private String title;
-    private int spuId;
+    private Long spuId;
+    private String code;
+    private int stock;
+    private Long categoryId;
+    private Long rootCategoryId;
 
     @Convert(converter = ListAndJson.class)
     private List<Object> specs;
 
-    private String code;
-    private int stock;
-    private Integer categoryId;
-    private Integer rootCategoryId;
+
 
 }

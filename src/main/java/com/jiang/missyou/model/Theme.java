@@ -15,7 +15,7 @@ import java.util.Objects;
 @Setter
 public class Theme extends BaseEntity {
     @Id
-    private Integer id;
+    private Long id;
 
     private String title;
 

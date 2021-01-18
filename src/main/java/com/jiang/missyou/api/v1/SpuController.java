@@ -32,7 +32,7 @@ public class SpuController {
     private SpuService spuService;
 
 
-    @PostMapping("/id/{id}/detail")
+    @GetMapping("/id/{id}/detail")
     public Spu getDetail(@PathVariable @Positive Long id) {
         Spu spu = this.spuService.getSpu(id);
         if(spu == null) {

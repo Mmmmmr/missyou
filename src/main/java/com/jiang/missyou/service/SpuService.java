@@ -1,5 +1,6 @@
 package com.jiang.missyou.service;
 
+import com.jiang.missyou.exception.http.NotFoundException;
 import com.jiang.missyou.model.Spu;
 import com.jiang.missyou.repository.SpuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,11 @@ public class SpuService {
     private SpuRepository spuRepository;
 
     public Spu getSpu(Long id) {
-        return  spuRepository.findOneById(id);
+        Spu spu =  spuRepository.findOneById(id);
+        if(spu ==  null) {
+            throw new NotFoundException(30003);
+        }
+        return spu;
     }
 
     public Page<Spu> getLatestSpuList (Integer pageNum, Integer count) {

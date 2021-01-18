@@ -19,7 +19,7 @@ import java.util.Objects;
 public class Category extends BaseEntity {
 
     @Id
-    private Integer id;
+    private Long id;
 
     private String name;
 
@@ -27,7 +27,7 @@ public class Category extends BaseEntity {
 
     private Boolean isRoot;
 
-    private Integer parentId;
+    private Long parentId;
 
     private String img;
 

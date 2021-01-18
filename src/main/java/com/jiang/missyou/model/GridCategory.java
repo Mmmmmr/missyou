@@ -10,11 +10,11 @@ import javax.persistence.*;
 @Setter
 public class GridCategory extends BaseEntity {
     @Id
-    private Integer id;
+    private Long id;
     private String title;
     private String img;
     private String name;
-    private Integer categoryId;
-    private Integer rootCategoryId;
+    private Long categoryId;
+    private Long rootCategoryId;
 
 }
