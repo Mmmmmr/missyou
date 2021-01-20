@@ -13,6 +13,7 @@ import com.jiang.missyou.util.CommonUtil;
 import com.jiang.missyou.vo.PagingDozer;
 import com.jiang.missyou.vo.SpuSimplifyVO;
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
@@ -39,6 +40,14 @@ public class SpuController {
             throw new NotFoundException(30003);
         }
         return spu;
+    }
+
+    @GetMapping("/id/{id}/simplify")
+    public SpuSimplifyVO getSimplifySpu(@PathVariable @Positive(message = "{id.positive}") Long id) {
+        Spu spu = this.spuService.getSpu(id);
+        SpuSimplifyVO vo = new SpuSimplifyVO();
+        BeanUtils.copyProperties(spu, vo);
+        return vo;
     }
 
     @GetMapping("/latest")

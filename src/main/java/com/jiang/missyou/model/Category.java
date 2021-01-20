@@ -5,11 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -27,10 +25,15 @@ public class Category extends BaseEntity {
 
     private Boolean isRoot;
 
-    private Long parentId;
-
     private String img;
 
-    private Integer index;
+    private Long parentId;
 
+    private Long index;
+
+    @ManyToMany()
+    @JoinTable(name = "coupon_category",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "coupon_id"))
+    private List<Coupon> couponList;
 }

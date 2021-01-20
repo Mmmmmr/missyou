@@ -10,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Max;
+import javax.validation.constraints.NotBlank;
 
 @RestController
 @RequestMapping("banner")
@@ -20,9 +21,9 @@ public class BannerController {
     private BannerService bannerService;
 
 
-    @PostMapping("/test/{name}")
+    @PostMapping("/name/{name}")
     @ScopeLevel()
-    public Banner test(@PathVariable String  name) {
+    public Banner getByName(@PathVariable @NotBlank String  name) {
         Banner banner =  bannerService.getByName(name);
         if(banner == null) {
             throw new NotFoundException(30005);
